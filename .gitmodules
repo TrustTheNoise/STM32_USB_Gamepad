@@ -1,0 +1,3 @@
+[submodule "external/STM32_CMSIS_SDK"]
+	path = external/STM32_CMSIS_SDK
+	url = https://github.com/TrustTheNoise/STM32_CMSIS_SDK.git
