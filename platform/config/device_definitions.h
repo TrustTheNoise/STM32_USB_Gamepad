@@ -27,8 +27,8 @@
 #define ENABLE_PIF_CLOCKING_DEFINITIONS
 
 #define HSE_CLOCK_FREQUENCY_HZ					(8000000U) //! Must contain frequency of external resonator
-#define SYSTEM_CLOCK_SOURCE						HSI //! Possible options: HSI, HSE, PLL_HSI, PLL_HSE
-#define SYSTEM_CLOCK_FREQUENCY_HZ				(8000000U) //! System clock frequency in Hz we want to achieve after clock setup
+#define SYSTEM_CLOCK_SOURCE						PLL_HSE //! Possible options: HSI, HSE, PLL_HSI, PLL_HSE
+#define SYSTEM_CLOCK_FREQUENCY_HZ				(72000000U) //! System clock frequency in Hz we want to achieve after clock setup
 
 #define SYSTICK_INTERRUPT_FREQUENCY_HZ			10 //! Frequency of SysTick_Handler() interrupt call
 

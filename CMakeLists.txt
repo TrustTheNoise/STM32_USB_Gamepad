@@ -51,8 +51,15 @@ set(include_c_DIRS)
 set(include_cxx_DIRS)
 set(include_asm_DIRS)
 
-# [CHANGE] Symbols definition for all compilers
-set(symbols_SYMB
+add_compile_definitions(
+    STM32F103xB
+    USE_HAL_DRIVER
+    USE_STM32_SDK
+)
+
+add_compile_options(
+    -g3
+    -ggdb
 )
 
 # [CHANGE] Symbols definition for each compiler
@@ -87,6 +94,8 @@ endforeach()
 add_executable(${CMAKE_PROJECT_NAME} 
     $<TARGET_OBJECTS:src>
 )
+
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE src)
 
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE ${CRITICAL_LIBRARIES})
 
@@ -131,7 +140,7 @@ target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
     # -Wsuggest-override
     >
     $<$<COMPILE_LANGUAGE:ASM>:-x assembler-with-cpp -MMD -MP>
-    $<$<CONFIG:Debug>:-Os -g3 -ggdb>
+    $<$<CONFIG:Debug>:-Os>
     $<$<CONFIG:Release>:-Os>
 )
 
